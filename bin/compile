@@ -18,9 +18,17 @@ elif [ "$STACK" == "heroku-20" ]; then
   UBUNTU_VERSION="focal"
 elif [ "$STACK" == "heroku-22" ]; then
   UBUNTU_VERSION="jammy"
+elif [ "$STACK" == "heroku-24" ]; then
+  UBUNTU_VERSION="noble"
 fi
 
-WKHTMLTOPDF_URL="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.${UBUNTU_VERSION}_amd64.deb"
+# Set a separate URL for wkhtmltopdf for noble
+if [ "$STACK" == "heroku-24" ]; then
+  # Link from https://launchpad.net/ubuntu/noble/amd64/wkhtmltopdf/0.12.6-2
+  WKHTMLTOPDF_URL="http://launchpadlibrarian.net/564451775/wkhtmltopdf_0.12.6-2_amd64.deb"
+else
+  WKHTMLTOPDF_URL="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.${UBUNTU_VERSION}_amd64.deb"
+fi
 WKHTMLTOPDF_PKG="$CACHE_DIR/wkhtmltopdf.deb"
 WKHTMLTOPDF_PATH="$TMP_PATH/wkhtmltopdf"
 WKHTMLTOPDF_BINARIES="$WKHTMLTOPDF_PATH/usr/local/bin"
