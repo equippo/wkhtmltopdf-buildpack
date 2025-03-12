@@ -17,13 +17,13 @@ WKHTMLTOPDF_LIBS="$WKHTMLTOPDF_PATH/usr/local/lib"
 
 if [ "$STACK" == "heroku-18" ]; then
   UBUNTU_VERSION="bionic"
-  WKHTMLTOPDF_LIBS="$WKHTMLTOPDF_PATH/usr/local/lib"
+  WKHTMLTOPDF_BINARIES="$WKHTMLTOPDF_PATH/usr/local/bin"
 elif [ "$STACK" == "heroku-20" ]; then
   UBUNTU_VERSION="focal"
-  WKHTMLTOPDF_LIBS="$WKHTMLTOPDF_PATH/usr/local/lib"
+  WKHTMLTOPDF_BINARIES="$WKHTMLTOPDF_PATH/usr/local/bin"
 elif [ "$STACK" == "heroku-22" ]; then
   UBUNTU_VERSION="jammy"
-  WKHTMLTOPDF_LIBS="$WKHTMLTOPDF_PATH/usr/local/lib"
+  WKHTMLTOPDF_BINARIES="$WKHTMLTOPDF_PATH/usr/local/bin"
 elif [ "$STACK" == "heroku-24" ]; then
   UBUNTU_VERSION="noble"
   WKHTMLTOPDF_BINARIES="$WKHTMLTOPDF_PATH/usr/bin"
