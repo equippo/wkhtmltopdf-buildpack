@@ -53,14 +53,14 @@ dpkg -x $WKHTMLTOPDF_PKG $WKHTMLTOPDF_PATH
 echo "-----> Setting permissions"
 chmod +x $WKHTMLTOPDF_BINARIES/*
 
+echo "-----> Moving binaries to the right place"
+mv $WKHTMLTOPDF_BINARIES/* $BIN_PATH/
+
 # Only required for older versions
 if [ "$STACK" != "heroku-24" ]; then
-  echo "-----> Moving binaries to the right place"
-  mv $WKHTMLTOPDF_BINARIES/* $BIN_PATH/
+  echo "-----> Moving libs to the right place"
+  mv $WKHTMLTOPDF_LIBS/* $LIB_PATH/
 fi
-
-echo "-----> Moving libs to the right place"
-mv $WKHTMLTOPDF_LIBS/* $LIB_PATH/
 
 echo "-----> Cleaning up"
 rm -rf $WKHTMLTOPDF_PATH
